@@ -1,0 +1,275 @@
+@font-face {
+  font-family: "Anton";
+  src: url("public/fonts/Anton/Anton.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "FjallaOne-Regular";
+  src: url("public/fonts/Fjalla_One/FjallaOne-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "JosefinSans-Regular";
+  src: url("public/fonts/Josefin_Sans/JosefinSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("public/fonts/Nunito/Nunito-Regular.ttf") format("truetype");
+}
+
+/* NAVBAR HEADER */
+
+/* Espacio para Fix navbar */
+body {
+  padding-top: 50px;
+  padding-bottom: 120px;
+  color: white;
+  background-color: #37474f;
+  font-family: sans-serif;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+/* Pills background */
+.nav-pills li > a:focus,
+.nav-pills li > a:hover {
+  background-color: rgba(26, 32, 32, 0.7);
+}
+
+.nav-pills li > a,
+.nav-pills li > a {
+  color: #bdbdbd;
+}
+
+/* Pills active color */
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:focus,
+.nav-pills > li.active > a:hover {
+  color: white;
+  background-color: #0288d1;
+}
+
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+
+.padding-top {
+  padding-top: 30px;
+}
+
+.media {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.media-body {
+  border-radius: 3px;
+  background-color: rgba(26, 32, 32, 0.5);
+}
+
+.media-left {
+  border-radius: 3px;
+  background-color: rgba(26, 32, 32, 0.7);
+}
+
+.media-body:hover {
+  border-width: thick;
+  background-color: rgba(26, 32, 32, 0.7);
+}
+
+.media-object {
+  width: 66px;
+  height: 80px;
+  border-radius: 3px;
+}
+
+/* bootbox alert text color */
+div.bootbox-body {
+  color: black;
+}
+
+/* Table hover */
+tr.hov.ng-scope:hover {
+  background-color: #455a64;
+}
+
+/* form well color */
+.well {
+  position: static;
+  padding-bottom: 2px;
+  padding-top: 3px;
+  margin-bottom: 5px;
+  background-color: #263238;
+  box-shadow: 0 5px 10px black;
+  border: 0;
+}
+
+.well:hover {
+  background-color: #101114;
+  transition: all 0.4s;
+}
+
+/* navbar background */
+.navbar-inverse {
+  background-color: rgba(22, 23, 25, 0.7);
+  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 1);
+}
+
+.navbar-inverse:hover {
+  background-color: rgba(22, 23, 25, 1);
+}
+
+/* Brand y link */
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #bdbdbd;
+}
+
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:hover {
+  color: #0288d1;
+}
+
+.navbar-inverse .navbar-brand {
+  font-family: JosefinSans-Regular, sans-serif; /* Fuente de SmartWolf */
+  color: #03a9f4;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: #03a9f4;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+  color: #03a9f4;
+  background-color: #212121;
+}
+
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > .open > a:hover {
+  color: #03a9f4;
+  background-color: #212121;
+}
+
+/* bootstrap btn-info (RECOLOR) */
+.btn-info {
+  background-color: #039be5;
+}
+
+.btn-info:focus {
+  background-color: #0288d1;
+}
+
+.btn-info:hover {
+  background-color: #0288d1;
+}
+
+.btn-info:active {
+  background-color: #039be5;
+}
+
+.btn-info:active:hover {
+  background-color: #039be5;
+}
+
+/*
+//////////////////////////////////////////////////////////////////////// */
+
+/* FOOTER */
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #263238;
+  width: 100%;
+  padding-bottom: 10px;
+  max-height: 120px;
+  border-top: 2px solid #039be6;
+  box-shadow: 0 0 5px #039be6;
+}
+
+.footer-links > li > a {
+  font-size: 80%;
+  color: #fff;
+}
+
+/* FIN FOOTER */
+
+/*
+////////////////////////////////////////////////////////////////////////////// */
+
+/* Varios */
+.SW-btn:hover {
+  color: white;
+}
+
+.SW-btn {
+  border-radius: 0;
+  color: white;
+  background-color: #039be6;
+  border: none;
+  padding: 5px;
+}
+
+.SW-btn-green:hover {
+  background-color: #03e67e;
+  transition: all 0.3s;
+}
+
+.SW-btn-red:hover {
+  background-color: #ee3337;
+  transition: all 0.3s;
+}
+
+.close {
+  color: white;
+}
+
+.close:hover {
+  color: #ee3337;
+  text-shadow: none;
+}
+
+.Thumbnails-SW {
+  margin-bottom: 100px;
+}
+
+.margin-container {
+  margin-top: 20px;
+}
+
+.navbar-inverse {
+  background-color: rgba(22, 23, 25, 0.7);
+}
+
+.navbar-inverse:hover {
+  background-color: rgba(22, 23, 25, 1);
+}
+
+.SW-home-logo {
+  width: 50px;
+  float: left;
+  margin-right: 10px;
+}
+
+.sombras {
+  box-shadow: 0 5px 10px black;
+}
+
+.link-blanco > td > a {
+  color: white;
+}
+
+/* Fin Varioos */
+
+/*
+/////////////////////////////////////// */

@@ -1,0 +1,36 @@
+<div ng-include class="fadeInOut" src="'/includes/header.html'"></div>
+
+<div class="container">
+  <div class="row SW-articulo-posicion">
+
+    <div class="col-md-12 col-xs-12 articulo-box">
+
+      <div class="col-md-5 SW-articulo-img-box">
+        <img ng-src="{{product.URL}}" alt="..." class=" SW-articulo-img"/>
+      </div>
+
+      <div class="col-md-7">
+
+        <div class="col-md-10 col-md-offset-1 col-xs-12 SW-articulo-descripcion">
+          <h2 class="SW-titulo-articulo">{{product.title}}</h2>
+          <h2 class="titulo-articulo">Marca:
+            {{product.brand}}</h2>
+          <h2 class="titulo-articulo">Sistema Operativo:
+            {{product.os}}</h2>
+          <h2 class="precio-articulo">Bs. {{product.price * tasa}}</h2>
+        </div>
+
+        <div class="col-md-10 col-md-offset-1 articulo-botones sombras">
+          <button class="SW-articulo-btn-comprar sombras col-md-4 col-xs-12" ng-click="addToCart()">
+            Añadir al Carrito
+          </button>
+          <button class="SW-articulo-btn-comprar col-md-8 col-xs-12" ng-click="confirmarCompra()">
+            Comprar ahora
+          </button>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
+</div>

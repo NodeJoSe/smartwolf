@@ -1,0 +1,156 @@
+<div ng-include class="fadeInOut" src="'/includes/header.html'"></div>
+
+<div class="container">
+  <div class="row">
+
+    <div class="col-md-3 padding-top">
+
+      <ul class="nav nav-pills nav-stacked" ng-controller="DropdownController">
+        <li class="active">
+          <a href="#">
+            <span class="glyphicon glyphicon-briefcase"></span>
+            Perfil de Usuario
+          </a>
+        </li>
+        <li>
+          <a href="" ng-click="setAdress.show = false; profile.show = true; setFacturas.show = false">
+            <span class="glyphicon glyphicon-user"></span>
+            Perfil
+          </a>
+          <a href="" ng-click="setAdress.show = true; profile.show = false; setFacturas.show = false">
+            <span class="glyphicon glyphicon-road"></span>
+            Ingresar Cuenta Paypal
+          </a>
+          <a href="" ng-click="setAdress.show = false; profile.show = false; setFacturas.show = true">
+            <span class="glyphicon glyphicon-usd"></span>
+            Facturas
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+    <div ng-if="profile.show" class="fadeInOut col-md-6 col-sm-6 col-md-offset-2 col-sm-offset-2 SW-usuario-box">
+
+      <h2 class="SW-usuario-titulo">Datos del usuario</h2>
+
+      <div class="SW-usuario-etiquetas">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Usuario:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.username}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Nombre:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.firstname}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Apellido:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.lastname}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas" ng-if="user.ci">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Cedula:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.ci}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas" ng-if="user.email">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Correo Paypal:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.email}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas" ng-if="user.adress.city">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Ciudad:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.adress.city}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas" ng-if="user.adress.state">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Estado:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.adress.state}}</h5>
+      </div>
+      <div class="SW-usuario-etiquetas" ng-if="user.adress.street">
+        <h5 class="col-md-6 col-sm-6 col-xs-6">Calle:</h5>
+        <h5 class="col-md-6 col-sm-6 col-xs-6">{{user.adress.street}}</h5>
+      </div>
+
+    </div>
+
+    <div class="fadeInOut col-md-6 col-md-offset-2 padding-top" ng-if="setAdress.show">
+
+      <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+
+      <form name="formu" class="well" ng-submit="editUser()">
+        <h2 class="text-center">Cuenta Paypal y Direccion de envio</h2><br/>
+        <div class="form-group">
+          <label>Cedula:</label>
+          <input type="text" class="form-control" ng-model="form.ci" required/>
+        </div>
+        <div class="form-group">
+          <label>Correo Paypal:</label>
+          <input type="email" class="form-control" ng-model="form.email" required/>
+        </div>
+        <div class="form-group">
+          <label>Ciudad:</label>
+          <input type="text" class="form-control" ng-model="form.city" required/>
+        </div>
+        <div class="form-group">
+          <label>Estado:</label>
+          <input type="text" class="form-control" ng-model="form.state" required/>
+        </div>
+        <div class="form-group">
+          <label>Dirección:</label>
+          <input type="text" class="form-control" ng-model="form.street" required/>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-info" ng-disabled="formu.$invalid || disabled">Enviar Datos</button>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="fadeInOut container col-md-offset-1 col-md-8 padding-top" ng-if="setFacturas.show">
+
+      <table class="table row table-hover">
+        <thead>
+          <th>Cliente</th>
+          <th>Producto</th>
+          <th>Monto</th>
+          <th>Fecha</th>
+        </thead>
+        <tr class="hov bounceInOut link-blanco" ng-repeat="factura in facturas | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
+          <td>
+            <a ng-href="/factura/{{factura._id}}">
+              {{factura.user.username}}
+            </a>
+          </td>
+          <td>
+            <a ng-href="/factura/{{factura._id}}">
+              {{factura.product.title}}
+            </a>
+          </td>
+          <td>
+            <a ng-href="/factura/{{factura._id}}">
+              Bs.
+              {{factura.product.price * tasa}}
+            </a>
+          </td>
+          <td>
+            <a ng-href="/factura/{{factura._id}}">
+              {{factura.date | date : "short"}}
+            </a>
+          </td>
+        </tr>
+      </table>
+
+      <ul
+        class="pagination-sm col-md-8"
+        uib-pagination
+        total-items="facturas.length"
+        ng-model="currentPage"
+        items-per-page="pageSize"
+        boundary-links="true"
+        force-ellipses="true"
+        max-size="5"
+        previous-text="&lsaquo;"
+        next-text="&rsaquo;"
+        first-text="&laquo;"
+        last-text="&raquo;"></ul>
+
+    </div>
+
+  </div>
+</div>

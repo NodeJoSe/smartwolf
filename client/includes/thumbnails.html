@@ -1,0 +1,21 @@
+<div class="row" ng-controller="ArticulosController">
+    <div class="col-md-3" ng-repeat="product in products | limitTo: limit">
+        <div class="thumbnail">
+            <div class="img-box">
+                <a ng-href="/articulo/{{product._id}}">
+                    <img class="thumbnail-img" alt="..." ng-src="{{product.URL}}"/>
+                </a>
+            </div>
+           
+            <div class="thumbnail-info">
+                <h6 align="center" >{{product.brand}}</h6>
+                <h6 align="center" >{{product.os}}</h6>
+                <div class="boton-thumbnail">
+                    <p>
+                        <a ng-href="/articulo/{{product._id}}" class="btn boton-thumbnail" role="button">Ver mas</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

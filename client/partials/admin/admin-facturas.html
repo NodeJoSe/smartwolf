@@ -1,0 +1,64 @@
+<div ng-include class="fadeInOut" src="'/includes/admin-header.html'"></div>
+
+<div class="container padding-top">
+
+  <table class="table row table-hover">
+    <thead>
+      <th>Cliente</th>
+      <th>Producto</th>
+      <th>Monto</th>
+      <th>Fecha</th>
+      <th>
+        <div class="text-right">
+          <button type="button" class="btn btn-sm btn-danger" ng-click="deleteFacturas()">
+            <span class="glyphicon glyphicon-trash"></span>
+            Eliminar todos
+          </button>
+        </div>
+      </th>
+    </thead>
+    <tr class="hov bounceInOut link-blanco" ng-repeat="factura in facturas | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
+      <td>
+        <a ng-href="/factura/{{factura._id}}">
+          {{factura.user.username}}
+        </a>
+      </td>
+      <td>
+        <a ng-href="/factura/{{factura._id}}">
+          {{factura.product.title}}
+        </a>
+      </td>
+      <td>
+        <a ng-href="/factura/{{factura._id}}">
+          Bs.
+          {{factura.product.price * tasa}}
+        </a>
+      </td>
+      <td>
+        <a ng-href="/factura/{{factura._id}}">
+          {{factura.date | date : "short"}}
+        </a>
+      </td>
+      <td>
+        <button type="button" class="btn btn-sm btn-danger" ng-click="deleteFactura($index + ((currentPage - 1) * pageSize))">
+        <span class="glyphicon glyphicon-trash"></span>
+        </button>    
+      </td>
+    </tr>
+  </table>
+
+  <ul
+    class="pagination-sm col-md-8"
+    uib-pagination
+    total-items="facturas.length"
+    ng-model="currentPage"
+    items-per-page="pageSize"
+    boundary-links="true"
+    force-ellipses="true"
+    max-size="5"
+    previous-text="&lsaquo;"
+    next-text="&rsaquo;"
+    first-text="&laquo;"
+    last-text="&raquo;"></ul>
+
+</div>

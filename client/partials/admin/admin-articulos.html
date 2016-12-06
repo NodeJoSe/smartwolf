@@ -1,0 +1,78 @@
+<div ng-include class="fadeInOut" src="'/includes/admin-header.html'"></div>
+
+<div class="container padding-top">
+
+  <div class="col-md-4">
+
+    <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+
+    <form class="well well-lg" ng-submit="addProducts()">
+      <h2 class="text-center">Agregar Productos</h2><br/>
+      <div class="form-group">
+        <label>Keywords</label>
+        <input type="text" class="form-control" ng-model="form.keywords" required/>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-info" ng-disabled="disabled">
+          <span class="glyphicon glyphicon-ok"></span>
+          Agregar Productos
+        </button>
+      </div>
+    </form>
+
+    <div class="text-center margin-top padding-top well well-lg">
+      <h2 class="">Eliminar todos</h2><br/>
+      <button type="button" class="btn btn-danger" ng-click="deleteProducts()">
+        <span class="glyphicon glyphicon-trash"></span>
+        Eliminar todos
+      </button>
+    </div>
+
+  </div>
+
+  <div class="col-md-8">
+
+    <ul class="media-list">
+      <li class="bounceRightLeft media" ng-repeat="product in products | startFrom: (currentPage - 1) * pageSizeAdmin | limitTo: pageSizeAdmin">
+        <div class="media-left">
+          <a href="#" class="media-object-box">
+            <img class="media-object" ng-src="{{product.URL}}" alt="..."/>
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+            <button type="button" class="btn btn-danger pull-right" ng-click="deleteProduct($index + ((currentPage - 1) * pageSizeAdmin))">
+              <span class="glyphicon glyphicon-trash"></span>
+            </button>
+            <p>Brand:
+              {{product.brand}}
+              / Os:
+              {{product.os}}
+              / Precio:
+              Bs. {{product.price * tasa}}
+            </p>
+          </h4>
+          <p>
+            {{product.title}}
+          </p>
+        </div>
+      </li>
+    </ul>
+
+    <ul
+      class="pagination-sm col-md-8"
+      uib-pagination
+      total-items="products.length"
+      ng-model="currentPage"
+      items-per-page="pageSizeAdmin"
+      boundary-links="true"
+      force-ellipses="true"
+      max-size="5"
+      previous-text="&lsaquo;"
+      next-text="&rsaquo;"
+      first-text="&laquo;"
+      last-text="&raquo;"></ul>
+
+  </div>
+
+</div>

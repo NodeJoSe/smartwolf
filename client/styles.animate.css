@@ -1,0 +1,19 @@
+.bounceInOut.ng-enter {
+  animation: bounceInUp 500ms;
+}
+
+.bounceInOut.ng-leave {
+  animation: bounceOutDown 500ms;
+}
+
+.bounceRightLeft.ng-enter {
+  animation: bounceInRight 500ms;
+}
+
+.bounceRightLeft.ng-leave {
+  animation: bounceOutDown 500ms;
+}
+
+.fadeInOut.ng-enter {
+  animation: fadeIn 300ms;
+}

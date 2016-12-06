@@ -1,0 +1,77 @@
+<div ng-include class="fadeInOut" src="'/includes/header.html'"></div>
+
+<div class="container margin-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+      <form name="form" ng-submit="register(false)" class="form-horizontal well">
+        <h2 class="text-center">Registro de usuario</h2>
+        <div class="form-group">
+          <div ng-show="error" class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4 alert alert-danger">{{errorMessage}}</div>
+        </div>
+        <div class="form-group">
+          <label for="user" class="control-label col-md-2 col-md-offset-2">
+            Usuario
+          </label>
+          <div class="col-md-6">
+            <input ng-model="form.username" type="text" class="form-control" id="user" placeholder="Ingrese su nombre de Usuario" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name" class="control-label col-md-2 col-md-offset-2">
+            Nombre
+          </label>
+          <div class="col-md-6">
+            <input ng-model="form.firstname" type="text" class="form-control" id="name" placeholder="Ingrese su nombre" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name2" class="control-label col-md-2 col-md-offset-2">
+            Apellido
+          </label>
+          <div class="col-md-6">
+            <input ng-model="form.lastname" type="text" class="form-control" id="name2" placeholder="Ingrese su apellido" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass" class="control-label col-md-2 col-md-offset-2">
+            Contraseña
+          </label>
+          <div class="col-md-6">
+            <input type="password" ng-model="form.password" class="form-control" id="pass" placeholder="Ingrese su contraseña" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pass2" class="control-label col-md-2 col-md-offset-2">
+            Repetir contraseña
+          </label>
+          <div class="col-md-6">
+            <input type="password" ng-model="password2" class="form-control" id="pass2" name="password2" placeholder="Ingrese su contraseña nuevamente" ui-validate=" '$value==form.password' " ui-validate-watch=" 'password' " required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-4">
+            <span ng-show="form.password2.$error.validator" class="alert alert-danger">
+              Las contraseñas no coinciden!
+            </span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-8 col-md-offset-2">
+            <button type="submit" ng-disabled="form.$invalid || disabled" class="btn SW-btn SW-btn-green btn-block">
+              Registrarse
+            </button>
+          </div>
+        </div>
+
+        <h3 class="text-center">
+          Bienvenid@
+          {{form.username}}
+        </h3>
+      </form>
+
+  
+
+    </div>
+  </div>
+</div>

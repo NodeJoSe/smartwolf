@@ -1,0 +1,58 @@
+<div ng-include class="fadeInOut" src="'/includes/header.html'"></div>
+
+<div class="container margin-container">
+  <div class="row">
+
+    <div class="col-md-4 col-sm-6 col-xs-12 fadeInOut" ng-repeat="product in products | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
+      <div class="col-md-12 col-sm-12 col-xs-12 busqueda-box">
+
+        <a ng-href="/articulo/{{product._id}}">
+          <h5 class="col-md-12">{{product.title}}</h5>
+        </a>
+
+        <div class="col-md-5 col-xs-12 busqueda-img-box">
+          <a ng-href="/articulo/{{product._id}}">
+            <img ng-src="{{product.URL}}" class="busqueda-img"/>
+          </a>
+        </div>
+
+        <h4 class="busqueda-precio text-center col-md-6 col-xs-12">
+          Bs.
+          {{product.price * tasa}}</h4>
+
+        <div class="hidden-xs hidden-sm">
+          <a ng-href="/articulo/{{product._id}}">
+            <button class="col-md-7 btn btn-busqueda">
+              Ver Articulo
+            </button>
+          </a>
+        </div>
+
+        <div class="hidden-md hidden-lg">
+          <a ng-href="/articulo/{{product._id}}">
+            <button class="col-xs-12 col-sm-12 btn btn-busqueda-2">
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <ul
+    class="pagination-sm col-md-8 "
+    uib-pagination
+    total-items="products.length"
+    ng-model="currentPage"
+    items-per-page="pageSize"
+    boundary-links="true"
+    force-ellipses="true"
+    max-size="5"
+    previous-text="&lsaquo;"
+    next-text="&rsaquo;"
+    first-text="&laquo;"
+    last-text="&raquo;"></ul>
+</div>

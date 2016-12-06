@@ -1,0 +1,84 @@
+
+
+<div class="container">
+  <div class="row">
+	<div class="col-md-8 col-md-offset-2 col-sm-12 factura-body">
+	  
+	  <div class="logo-box">
+	  	<img src="/public/img/logo.png" class="logo-img" alt="SmartWolf-Logo">
+	  </div>
+
+	  <div class="factura-fecha">
+        <h4>Factura</h4>
+        <h4>{{factura.date | date : "short"}}</h4>
+        <h4>
+          #Numero:
+          {{factura._id}}
+        </h4>
+      </div>
+
+	  <div class="datos-direccion">
+	  	<h3 class="direccion-box">SmartWolf</h3>
+	  	<div class="direccion-box">
+	  	  <h5>Dirección de entrega:</h5>
+	  	</div>
+	  	<div class="direccion-box direccion-datos">
+	  	  <h4>Cliente: {{factura.user.username}}</h4>
+	  	  <h4>Estado: {{factura.user.adress.state}}</h4>
+	  	  <h4>Ciudad: {{factura.user.adress.city}}</h4>
+	  	  <h4>Direccion: {{factura.user.adress.street}}</h4>
+	  	</div>
+	  </div>
+
+	  <div class="datos-factura">
+	  	<ul class="datos-factura-titulos">
+	  	  <li>Numero Factura</li>
+	  	  <li>Fecha de Factura</li>
+	  	</ul>
+
+	  	<ul class="datos-factura-contenido">
+	  	  <li>{{factura._id}}</li>
+          <li>{{factura.date | date : "short"}}</li>
+	  	</ul>
+	  </div>
+
+	  <div class="datos-compra">
+	  	<ul class="datos-compra-titulos">
+	  	  <li>Producto </li>
+	  	  <li>Precio base (sin IVA)</li>
+	  	</ul>
+
+	  	<ul class="datos-compra-contenido">
+	  	  <li>{{factura.product.title}}</li>
+        <li>Bs. {{factura.product.price * tasa}}</li>
+	  	</ul>
+	  </div>
+
+	  <div class="datos-total">
+        <h5>
+          Producto: Bs.
+          {{factura.product.price * tasa}}
+        </h5>
+        <h5>
+          Costo del Envío: Bs.
+          {{factura.product.price / 2}}
+        </h5>
+        <h5>
+          IVA 12%:
+          Bs. {{(factura.product.price * tasa) * 0.12}}
+        </h5>
+        <h5>
+          Total: Bs.
+          {{(factura.product.price * tasa) + (factura.product.price / 2) + ((factura.product.price * tasa) * 0.12)}}
+        </h5>
+      </div>
+
+	</div>
+
+	<div class="botones-factura hidden-print">
+    <button class="btn SW-btn SW-btn-red btn-factura col-md-1 col-md-offset-8 col-sm-6 col-sm-offset-6" ng-click="back()">Atras</button>
+    <button class="btn SW-btn SW-btn-green btn-factura col-md-1 col-sm-6" ng-click="print()">Imprimir</button>
+  </div>
+	
+  </div>
+</div>

@@ -1,0 +1,79 @@
+<div ng-include class="fadeInOut" src="'/includes/header.html'"></div>
+
+<div class="container margin-container">
+  <div class="row fadeInOut" ng-if="products[0]">
+
+    <div class="SW-carrito-box col-md-7 col-xs-12" ng-repeat="product in products">
+      <div class="col-md-2 col-sm-2 col-xs-12 SW-carrito-img-box">
+        <img ng-src="{{product.product.URL}}" class=" SW-carrito-img"/>
+      </div>
+
+      <div class="col-md-10 col-sm-10 col-xs-12 carrito-info-box">
+        <div class="col-md-11 col-sm-11 col-xs-12 SW-carrito-info">
+          <div class=" col-sm-8 carrito-titulo">
+            <a ng-href="/articulo/{{product.product._id}}">
+              <h4 class="SW-carrito-info-nombre">{{product.product.title}}</h4>
+            </a>
+
+            <h5 class="carrito-info-marca col-xs-12">{{product.product.brand}}</h5>
+            <h3 class="SW-carrito-info-precio col-xs-12">
+              Bs. {{product.product.price * tasa}}</h3>
+          </div>
+        </div>
+
+        <div class="col-md-1 col-sm-1 hidden-xs">
+          <button class="btn SW-btn-remove" type="button" ng-click="deleteCartItem($index)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </div>
+
+        <div class="hidden-md hidden-sm hidden-lg visible-xs-12">
+          <button class="btn btn-block remove-xs" type="button" ng-click="deleteCartItem($index)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 hidden-md hidden-lg hidden-sm carrito-botones-xs sombras fadeInOut" ng-if="products[0]">
+      <h4 class="text-center">Total: monto</h4>
+      <a href="" type="button" ng-click="deleteCart($index)">
+        <div class="SW-carrito-btn-comprar SW-btn-red col-xs-12 ">
+          <h4 class="SW-carrito-btn-texto">Limpiar Carrito</h4>
+        </div>
+      </a>
+      <a href="" type="button" ng-click="buyCart()">
+        <div class="SW-carrito-btn-comprar SW-btn-green col-xs-12">
+          <h4 class="SW-carrito-btn-texto">Confirmar compra</h4>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-md-3 col-md-offset-2 carrito-botones sombras hidden-xs fadeInOut" ng-if="products[0]">
+      <h4 class="text-center">Total: Bs. {{total.price * tasa}}</h4>
+      <a href="" type="button" ng-click="deleteCart($index)">
+        <div class="SW-carrito-btn-comprar SW-btn-red col-md-12 col-sm-2 ">
+          <h4 class="SW-carrito-btn-texto">Limpiar Carrito</h4>
+        </div>
+      </a>
+      <a href="" type="button" ng-click="buyCart()">
+        <div class="SW-carrito-btn-comprar SW-btn-green col-md-12">
+          <h4 class="SW-carrito-btn-texto">Confirmar compra</h4>
+        </div>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!--Mensaje cuando el carrito está vacío-->
+<div class="container fadeInOut" ng-if="empty">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 compra-ventana sombras">
+      <h4 class="compra-titulo">¡Ups! El carrito está vacío</h4>
+      <a href="/articulos" role="button" class=" btn SW-btn SW-btn-green btn-ventana-aceptar">
+        Ver articulos
+      </a>
+    </div>
+  </div>
+</div>

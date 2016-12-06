@@ -1,0 +1,32 @@
+<div ng-include class="fadeInOut" src="'/includes/header.html'"></div>
+
+<div class="col-md-4 col-md-offset-4 padding-top">
+
+  <div ng-show="error" class="alert alert-danger">{{errorMessage}}</div>
+
+  <form class="well" ng-submit="login()">
+    <h2 class="text-center">Iniciar Sesion</h2><br/>
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" class="form-control" ng-model="loginForm.username" required/>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" class="form-control" ng-model="loginForm.password" required/>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-info" ng-disabled="disabled">
+        Iniciar Sesión
+      </button>
+    </div>
+
+    <h3 class="text-center ">
+    Bienvenid@
+    {{loginForm.username}}
+    </h3>
+
+  </form>
+
+  
+
+</div>

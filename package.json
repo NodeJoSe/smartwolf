@@ -1,0 +1,46 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "4.6.0",
+    "npm": "3.10.8"
+  },
+  "author": "Jose Villalobos",
+  "license": "ISC",
+  "description": "eCommerce Project (Ingenieria del software)",
+  "dependencies": {
+    "amazon-product-api": "0.4.2",
+    "angular": "1.5.8",
+    "angular-animate": "1.5.8",
+    "angular-resource": "1.5.8",
+    "angular-route": "1.5.8",
+    "angular-ui-bootstrap": "2.1.3",
+    "angular-ui-validate": "1.2.2",
+    "animate.css": "3.5.2",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "1.15.2",
+    "bootbox": "4.4.0",
+    "bootstrap": "3.3.7",
+    "bootstrap-social": "5.0.0",
+    "cookie-parser": "1.4.3",
+    "debug": "2.2.0",
+    "express": "4.14.0",
+    "express-session": "1.14.0",
+    "font-awesome": "4.6.3",
+    "jquery": "3.1.0",
+    "method-override": "2.3.6",
+    "mongoose": "4.5.3",
+    "morgan": "1.7.0",
+    "node-sass-middleware": "0.9.8",
+    "passport": "0.3.2",
+    "passport-local": "1.0.0",
+    "passport-local-mongoose": "4.0.0",
+    "serve-favicon": "2.3.0"
+  }
+}

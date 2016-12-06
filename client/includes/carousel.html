@@ -1,0 +1,16 @@
+<div class="slider" ng-controller="CarouselController">
+    <div>
+        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+            <div class="fadeInOut" uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+                <a ng-href="/articulos/{{slide.items}}">
+                    <img ng-src="{{slide.image}}" alt="..." class="img-responsive"/>
+                    <div class="carousel-caption">
+                        <h3>Categoria
+                            {{slide.text}}
+                        </h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
