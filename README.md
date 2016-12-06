@@ -1,6 +1,6 @@
 eCommerce prototype website made in the university with Node.js "Mean stack"
 
-Note: this was my first project made with a partner, so, i did not followed a good structure with angular, i might restructure it later, there is 3 main files:  
+Note: this was my first project made with a partner, so, i did not followed a good structure with angular, i might restructure it later, there are 3 main files:  
 
 	app.controller.js contains all the controllers
 
