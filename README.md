@@ -9,3 +9,5 @@ Note: this was my first project made with a partner, so, i did not followed a go
 	app.config.js contains the config and routes
 	
 Server side looks more organized thought, made with with express and mongoose.
+
+Products details and images comes from amazon, using amazon-product-api.
